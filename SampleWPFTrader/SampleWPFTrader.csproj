@@ -103,6 +103,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\FileManager.cs" />
     <Compile Include="Common\PropertyChanged.cs" />
     <Compile Include="Common\SmartDispatcher.cs" />
     <Compile Include="Converters\BoolToVisibility.cs" />
