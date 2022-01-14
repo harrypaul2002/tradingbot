@@ -110,6 +110,7 @@
     <Compile Include="Model\IgPublicApiData.cs" />
     <Compile Include="ViewModel\ApplicationViewModel.cs" />
     <Compile Include="ViewModel\BrowseViewModel.cs" />
+    <Compile Include="ViewModel\CandlesViewModel.cs" />
     <Compile Include="ViewModel\WatchlistsViewModel.cs" />
     <Compile Include="ViewModel\OrdersViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
