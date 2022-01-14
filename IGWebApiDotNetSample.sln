@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1267
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWPFTrader", "SampleWPFTrader\SampleWPFTrader.csproj", "{C508076B-6E37-4EC2-9B4C-B669C9B6E71A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IGWebApiClient", "IGWebApiClient\IGWebApiClient.csproj", "{269D3A2F-289F-4A78-98FD-21E3F5AC5E4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradingBotWeb", "TradingBotWeb\TradingBotWeb.csproj", "{0780A150-54B3-45E6-8E04-CFF8E4EEDD96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,8 +39,23 @@ Global
 		{269D3A2F-289F-4A78-98FD-21E3F5AC5E4F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{269D3A2F-289F-4A78-98FD-21E3F5AC5E4F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{269D3A2F-289F-4A78-98FD-21E3F5AC5E4F}.Release|x86.ActiveCfg = Release|Any CPU
+		{0780A150-54B3-45E6-8E04-CFF8E4EEDD96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0780A150-54B3-45E6-8E04-CFF8E4EEDD96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0780A150-54B3-45E6-8E04-CFF8E4EEDD96}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0780A150-54B3-45E6-8E04-CFF8E4EEDD96}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0780A150-54B3-45E6-8E04-CFF8E4EEDD96}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0780A150-54B3-45E6-8E04-CFF8E4EEDD96}.Debug|x86.Build.0 = Debug|Any CPU
+		{0780A150-54B3-45E6-8E04-CFF8E4EEDD96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0780A150-54B3-45E6-8E04-CFF8E4EEDD96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0780A150-54B3-45E6-8E04-CFF8E4EEDD96}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0780A150-54B3-45E6-8E04-CFF8E4EEDD96}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0780A150-54B3-45E6-8E04-CFF8E4EEDD96}.Release|x86.ActiveCfg = Release|Any CPU
+		{0780A150-54B3-45E6-8E04-CFF8E4EEDD96}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {058EDB2A-73DB-46A8-A5DA-49A78B9897FF}
 	EndGlobalSection
 EndGlobal

@@ -13,16 +13,16 @@ namespace TradingBotWeb.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Algos()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Algo me bb";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Commands()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Your wish is my command";
 
             return View();
         }
