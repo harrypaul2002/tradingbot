@@ -16,7 +16,7 @@ namespace TradingAPI.IG.Queries
 
             var CCIvalues = Indicator.GetCci(candles, cciIndictorLookbackPeriod).ToArray();
 
-            for (int i = candles.Count; i < CCIvalues.Count() - lookbackCount; i--)
+            for (int i = candles.Count-1; i > CCIvalues.Count() - lookbackCount; i--)
             {
                 if((decimal)CCIvalues[i].Cci > value)
                 {
@@ -31,7 +31,7 @@ namespace TradingAPI.IG.Queries
 
             var CCIvalues = Indicator.GetCci(candles, cciIndictorLookbackPeriod).ToArray();
 
-            for (int i = candles.Count; i < CCIvalues.Count() - lookbackCount; i--)
+            for (int i = candles.Count-1; i > CCIvalues.Count() - lookbackCount; i--)
             {
                 if ((decimal)CCIvalues[i].Cci < value)
                 {
@@ -46,7 +46,7 @@ namespace TradingAPI.IG.Queries
 
             var EMAvalues = Indicator.GetEma(candles, EMAIndictorLookbackPeriod).ToArray();
 
-            for (int i = candles.Count; i < EMAvalues.Count() - lookbackCount; i--)
+            for (int i = candles.Count-1; i > EMAvalues.Count() - lookbackCount; i--)
             {
                 if (candles[i].Close > EMAvalues[i].Ema)
                 {
@@ -68,7 +68,7 @@ namespace TradingAPI.IG.Queries
 
             var EMAvalues = Indicator.GetEma(candles, EMAIndictorLookbackPeriod).ToArray();
 
-            for (int i = candles.Count; i < EMAvalues.Count() - lookbackCount; i--)
+            for (int i = candles.Count-1; i > EMAvalues.Count() - lookbackCount; i--)
             {
 
 

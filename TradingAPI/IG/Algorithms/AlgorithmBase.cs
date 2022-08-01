@@ -1,8 +1,11 @@
-﻿using IGWebApiClient;
+﻿using dto.endpoint.prices.v2;
+using IGWebApiClient;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
+using static TradingAPI.IG.FileManager;
+
 namespace TradingAPI.IG.Algorithms
 {
     abstract public class AlgorithmBase
@@ -28,7 +31,23 @@ namespace TradingAPI.IG.Algorithms
         public void Alert()
         {
             Flash();
-            Console.Beep(1000, 3000);
+            Console.Beep(1000, 1000);
+        }
+
+        public abstract void BuyStrategy(List<PriceSnapshot> candles, TradeType tradeType = TradeType.Bid);
+
+
+        public abstract void SellStrategy(List<PriceSnapshot> candles, TradeType tradeType = TradeType.Ask);
+        
+
+        public void OpenPosition()
+        {
+            
+        }
+
+        public void ClosePosition()
+        {
+
         }
 
         //Alert 

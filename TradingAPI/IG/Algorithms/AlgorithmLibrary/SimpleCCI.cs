@@ -6,6 +6,8 @@ using System.Linq;
 using dto.endpoint.positions.create.otc.v2;
 using IGWebApiClient;
 using TradingAPI.IG.Queries;
+using static TradingAPI.IG.FileManager;
+using dto.endpoint.prices.v2;
 
 namespace TradingAPI.IG.Algorithms.AlgorithmLibrary
 {
@@ -27,7 +29,13 @@ namespace TradingAPI.IG.Algorithms.AlgorithmLibrary
             var candles = FileManager.GetCandles(algorithmEpic, algorithmChartScale.ToString()); // get candles currently downloaded 
 
             candles.Add(inProgressCandle); // add the streamed candle thats just come through to our list of predownloaded candles
-            
+
+            BuyStrategy(candles);
+            SellStrategy(candles);
+        }
+
+        public override void BuyStrategy(List<PriceSnapshot> candles,  TradeType tradeType = TradeType.Bid)
+        {
             //////////////////// BUY //////////////////
 
             var bidCandles = FileManager.ConvertDataSet(candles, FileManager.TradeType.Bid); // get the BID prices
@@ -41,19 +49,20 @@ namespace TradingAPI.IG.Algorithms.AlgorithmLibrary
 
             // Check we are now above 0 CCI
             bool IsCCINowAbove0_BID = bidCCI.Last().Cci > 0; // is the cci now above 0
-            Console.WriteLine(bidCCI.Last().Cci);
 
             bool HaveCandlesClosedAbove50EMA_BID = candles.Last().closePrice.bid > Indicator.GetEma(bidCandles, 50).Last().Ema; // is close price of last candle greater than 50EMA
-
+            
             if (IsCCINowAbove0_BID && HasCCIBeenBelow0Recently_BID && HasCCIBeenAbove100Recently_BID && HaveCandlesClosedAbove50EMA_BID)
             {
-
-                Console.WriteLine("SimpleCCI Algorithm : BUY");
+                Console.WriteLine($"{algorithmEpic} - SimpleCCI Algorithm : BUY" );
                 Alert();
             }
+        }
 
-
+        public override void SellStrategy(List<PriceSnapshot> candles, TradeType tradeType = TradeType.Ask)
+        {
             ////////////////// SELL ///////////////////
+
             var askCandles = FileManager.ConvertDataSet(candles, FileManager.TradeType.Ask);
 
             var askCCI = Indicator.GetCci(askCandles);
@@ -67,18 +76,14 @@ namespace TradingAPI.IG.Algorithms.AlgorithmLibrary
 
             // Check we are now below 0 CCI
             bool IsCCINowBelow0_Ask = askCCI.Last().Cci < 0;
-            Console.WriteLine(askCCI.Last().Cci);
 
-            bool HaveCandlesClosedAbove50EMA_Ask = candles.Last().closePrice.ask < Indicator.GetEma(bidCandles, 50).Last().Ema;
+            bool HaveCandlesClosedAbove50EMA_Ask = candles.Last().closePrice.ask < Indicator.GetEma(askCandles, 50).Last().Ema;
 
 
             if (IsCCINowBelow0_Ask && HasCCIBeenAbove0Recently_Ask && HasCCIBeenBelow100Recently_Ask && HaveCandlesClosedAbove50EMA_Ask)
             {
-
-                Console.WriteLine("SimpleCCI Algorithm : SELL");
+                Console.WriteLine($"{algorithmEpic} -SimpleCCI Algorithm : SELL");
                 Alert();
-
-               
             }
         }
     }
