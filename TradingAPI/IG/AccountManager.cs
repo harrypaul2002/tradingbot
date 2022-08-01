@@ -19,9 +19,9 @@ namespace TradingAPI.IG
     public static class AccountManager
     {
         // deal with handling account details at some point
-        private static string userName = "SweeneyPro";
-        private static string password = "Testing1";
-        private static string apiKey = "7f58fa41d4ac591797962e1259833713f013d45a";
+        private static string userName = "IG API Username";
+        private static string password = "IG API Password";
+        private static string apiKey = "IG API Key";
 
         private static bool LoggedIn;
         private static string CurrentAccountId;
